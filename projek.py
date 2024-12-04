@@ -50,7 +50,7 @@ def jantung():
         if st.button("Predict"):
             df = input_df
             st.write(df)
-            with open("model.pkl", "rb") as f:
+            with open("model/model.pkl", "rb") as f:
                 modelML = pickle.load(f)      
     #Prediction
             pred = modelML.predict(df)
@@ -117,7 +117,7 @@ def jantung():
         if st.button("Predict"):
             df = input_df
             st.write(df)
-            with open("model.pkl", "rb") as f:
+            with open("model/model.pkl", "rb") as f:
                 model = pickle.load(f)      
             prediksi = model.predict(df)
             prediksi = model.predict(input_df)
