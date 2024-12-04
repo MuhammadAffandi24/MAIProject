@@ -4,19 +4,12 @@ import numpy as np
 import pickle
 import time
 import streamlit as st
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn import tree
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier
 import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
 
 
-st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":heart:")
+st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":stats:")
 st.sidebar.title("Navigation")
 
 # Navigasi menggunakan st.radio dengan ikon
