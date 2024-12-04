@@ -4,3 +4,4 @@ streamlit
 pickle5
 time
 seaborn
+matplotlib
