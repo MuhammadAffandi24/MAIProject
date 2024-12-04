@@ -4,6 +4,7 @@ import numpy as np
 import time
 import streamlit as st
 from PIL import Image
+import pickle
 
 
 st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":stats:")
