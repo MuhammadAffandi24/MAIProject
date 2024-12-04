@@ -4,7 +4,6 @@ import numpy as np
 import pickle
 import time
 import streamlit as st
-import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
 
@@ -391,9 +390,7 @@ elif menu == "🔍Exploratory Data Analysis":
         outliers_age = df_cleaned[(df_cleaned['age'] < lower_bound) | (df_cleaned['age'] > upper_bound)]
 
         # Menampilkan boxplot
-        plt.figure(figsize=(2, 3))
-        sns.boxplot(y=df['age'])
-        st.pyplot(plt)
+        st.image('age.png', width=400)
     
         st.write(f"Terdapat {len(outliers_age)} outliers pada feature 'Age'.")
         st.write(outliers_age)
@@ -409,9 +406,7 @@ elif menu == "🔍Exploratory Data Analysis":
         outliers_trestbps = df_cleaned[(df_cleaned['trestbps'] < lower_bound_trestbps) | (df_cleaned['trestbps'] > upper_bound_tresbps)]
 
         # Menampilkan boxplot
-        plt.figure(figsize=(2, 3))
-        sns.boxplot(y=df_cleaned['trestbps'])
-        st.pyplot(plt)
+        st.image('trestbps.png', width=400)
 
         st.write(f"Terdapat {len(outliers_trestbps)} outliers pada feature 'Trestbps'.")
         st.write(outliers_trestbps)
@@ -427,9 +422,7 @@ elif menu == "🔍Exploratory Data Analysis":
         outliers_chol = df_cleaned[(df_cleaned['chol'] < lower_bound_chol) | (df_cleaned['chol'] > upper_boundchol)]
 
         # Menampilkan boxplot
-        plt.figure(figsize=(2, 3))
-        sns.boxplot(y=df_cleaned['chol'])
-        st.pyplot(plt)
+        st.image('chol.png', width=400)
 
         st.write(f"Terdapat {len(outliers_chol)} outliers pada feature 'chol'.")
         st.write(outliers_chol)
@@ -444,9 +437,7 @@ elif menu == "🔍Exploratory Data Analysis":
 
         outliers_thalach = df_cleaned[(df_cleaned['thalach'] < lower_bound_thalach) | (df_cleaned['thalach'] > upper_boundthalach)]
         # Menampilkan boxplot
-        plt.figure(figsize=(2, 3))
-        sns.boxplot(y=df_cleaned['thalach'])
-        st.pyplot(plt)
+        st.image('thalach.png', width=400)
 
         st.write(f"Terdapat {len(outliers_thalach)} outliers pada feature 'thalach'.")
         st.write(outliers_thalach)
@@ -462,9 +453,7 @@ elif menu == "🔍Exploratory Data Analysis":
         outliers_oldpeak = df_cleaned[(df_cleaned['oldpeak'] < lower_bound_oldpeak) | (df_cleaned['oldpeak'] > upper_boundoldpeak)]
 
         # Menampilkan boxplot
-        plt.figure(figsize=(2, 3))
-        sns.boxplot(y=df_cleaned['oldpeak'])
-        st.pyplot(plt)
+        st.image('oldpeak.png', width=400)
 
         st.write(f"Terdapat {len(outliers_oldpeak)} outliers pada feature 'oldpeak'.")
         st.write(outliers_oldpeak)
