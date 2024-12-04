@@ -36,16 +36,38 @@ menu = st.sidebar.selectbox(
 url = "https://storage.googleapis.com/dqlab-dataset/heart_disease.csv"
 df = pd.read_csv(url)
 
+import streamlit as st
+import pandas as pd
+import pickle
+import time
+
 def jantung():
     st.write("""
              Ini adalah aplikasi sederhana untuk memprediksi penyakit jantung.
-             Data yang digunakan adalah data dari [UCI Machine Learning Repository]("https://archive.ics.uci.edu/ml/datasets/heart+Disease")
+             Data yang digunakan adalah data dari [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/heart+Disease)
              """)
     st.subheader("Mulai Input Data")
     st.write("**Input Otomatis**")
+    
+    # Memuat model terlebih dahulu
+    modelML = pickle.load(open("model_terpilih.pkl", "rb"))
+
     uploaded_file = st.file_uploader("Upload File dengan jenis CSV", type=["csv"])
     if uploaded_file is not None:
         input_df = pd.read_csv(uploaded_file)
+        # Menampilkan data setelah upload
+        st.write("Data yang diupload:", input_df)
+
+        # Membuat tombol prediksi
+        if st.button("Prediksi"):
+            with st.spinner("Sedang memprediksi..."):
+                time.sleep(2)
+            prediksi = modelML.predict(input_df)
+            if prediksi[0] == 0:
+                st.success("Pasien tidak memiliki penyakit jantung.")
+            else:
+                st.error("Pasien memiliki penyakit jantung, segera tangani dengan baik.")
+    
     else:
         def user_input_manual():
             st.subheader("Input Manual")
@@ -87,7 +109,6 @@ def jantung():
                     sex = 0
                 age = st.slider("Usia", 29, 77, 30)
 
-                    
             data = {'cp': cp,
                     'thalach': thalach,
                     'slope': slope,
@@ -104,12 +125,10 @@ def jantung():
         if st.button("Mulai Prediksi"):
             df = input_df.copy()
             st.write(df)
-            # Load model
-            modelML = pickle.load(open("model_terpilih.pkl", "rb"))
-                
-            prediction = modelML.predict(df)
+            # Lakukan prediksi setelah mengumpulkan input manual
             with st.spinner("Sedang memprediksi..."):
                 time.sleep(2)
+            prediction = modelML.predict(df)
             if prediction[0] == 0:
                 st.success("Pasien tidak memiliki penyakit jantung.")
             else:
