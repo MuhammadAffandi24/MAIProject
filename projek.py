@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 
-st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":stats:")
+st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":heart:")
 st.sidebar.title("Navigation")
 
 # Navigasi menggunakan st.radio dengan ikon
