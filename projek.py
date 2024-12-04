@@ -38,9 +38,6 @@ def jantung():
              """)
     st.subheader("Mulai Input Data")
     st.write("**Input Otomatis**")
-    
-    # Memuat model terlebih dahulu
-    modelML = pickle.load(open("model_terpilih.pkl", "rb"))
 
     uploaded_file = st.file_uploader("Upload File dengan jenis CSV", type=["csv"])
     if uploaded_file is not None:
@@ -49,11 +46,15 @@ def jantung():
         st.write("Data yang diupload:", input_df)
 
         # Membuat tombol prediksi
-        if st.button("Prediksi"):
-            with st.spinner("Sedang memprediksi..."):
-                time.sleep(2)
-            prediksi = modelML.predict(input_df)
-            if prediksi[0] == 0:
+        if st.button("Predict"):
+            df = input_df
+            st.write(df)
+            with open("model_terpilih.pkl", "rb") as f:
+                modelML = pickle.load(f)      
+    #Prediction
+            pred = modelML.predict(df)
+            pred = modelML.predict(input_df)
+            if pred[0] == 0:
                 st.success("Pasien tidak memiliki penyakit jantung.")
             else:
                 st.error("Pasien memiliki penyakit jantung, segera tangani dengan baik.")
@@ -112,14 +113,14 @@ def jantung():
             return features
         
         input_df = user_input_manual()
-        if st.button("Mulai Prediksi"):
-            df = input_df.copy()
+        if st.button("Predict"):
+            df = input_df
             st.write(df)
-            # Lakukan prediksi setelah mengumpulkan input manual
-            with st.spinner("Sedang memprediksi..."):
-                time.sleep(2)
-            prediction = modelML.predict(df)
-            if prediction[0] == 0:
+            with open("model_terpilih.pkl", "rb") as f:
+                modelML = pickle.load(f)      
+            prediksi = modelML.predict(df)
+            prediksi = modelML.predict(input_df)
+            if prediksi[0] == 0:
                 st.success("Pasien tidak memiliki penyakit jantung.")
             else:
                 st.error("Pasien memiliki penyakit jantung, segera tangani dengan baik.")
