@@ -4,7 +4,6 @@ import numpy as np
 import pickle
 import time
 import streamlit as st
-import matplotlib.pyplot as plt
 from PIL import Image
 
 
