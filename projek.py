@@ -4,7 +4,6 @@ import numpy as np
 import time
 import streamlit as st
 from PIL import Image
-import pickle
 
 
 st.set_page_config(layout="wide", page_title="VitaPulse❤️‍🩹", page_icon=":stats:")
@@ -117,8 +116,8 @@ def jantung():
         if st.button("Predict"):
             df = input_df
             st.write(df)
-            with open("model.pkl", "rb") as file:
-                model = pickle.load(file)      
+            with open("model.pkl", "rb") as f:
+                model = pickle.load(f)      
             prediksi = model.predict(df)
             prediksi = model.predict(input_df)
             if prediksi[0] == 0:
