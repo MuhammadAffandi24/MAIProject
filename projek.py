@@ -117,9 +117,9 @@ def jantung():
             df = input_df
             st.write(df)
             with open("model.pkl", "rb") as f:
-                modelML = pickle.load(f)      
-            prediksi = modelML.predict(df)
-            prediksi = modelML.predict(input_df)
+                model = pickle.load(f)      
+            prediksi = model.predict(df)
+            prediksi = model.predict(input_df)
             if prediksi[0] == 0:
                 st.success("Pasien tidak memiliki penyakit jantung.")
             else:
