@@ -130,7 +130,7 @@ if menu == "🏠Home":
     st.write("""
              **Machine Learning & AI for Heart Disease**
              
-             Halo nama saya [Muhammad Muflih Affandi](https://www.linkedin.com/in/muflihaffandi/).
+             Halo nama saya [Muhammad Muflih Affandi](https://www.linkedin.com/in/muhammad-muflih-affandi-707028287/).
              Saya adalah seorang mahasiswa yang sedang belajar di Universitas Sebelas Maret dengan Jurusan Sains Data. Saya mengikuti
              kelas Machine Learning & AI di DQLab Academy. Dan ini adalah capstone project saya.
              
